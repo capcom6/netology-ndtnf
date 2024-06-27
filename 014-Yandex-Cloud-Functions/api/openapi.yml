@@ -1,0 +1,22 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
+servers:
+  - url: https://d5dousmmjtu9ujo1e30p.apigw.yandexcloud.net
+paths:
+  /api/characters:
+    get:
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+            format: int32
+          required: false
+          description: ID of the character
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: d4e36cs0jlng32bg8qu1
+        tag: "$latest"
+        service_account_id: ajea3oiu2ei1aol4hetc

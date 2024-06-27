@@ -1,0 +1,21 @@
+@baseUrl=https://functions.yandexcloud.net/d4e36cs0jlng32bg8qu1
+@apiUrl=https://d5dousmmjtu9ujo1e30p.apigw.yandexcloud.net
+
+###
+GET {{baseUrl}} HTTP/1.1
+
+###
+GET {{baseUrl}}?id=1009610 HTTP/1.1
+
+###
+GET {{baseUrl}}?id=not-found HTTP/1.1
+
+###
+GET {{apiUrl}}/api/characters HTTP/1.1
+
+###
+GET {{apiUrl}}/api/characters?id=1009610 HTTP/1.1
+
+###
+GET {{apiUrl}}/api/characters?id=not-found HTTP/1.1
+

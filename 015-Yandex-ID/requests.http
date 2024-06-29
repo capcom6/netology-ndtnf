@@ -1,0 +1,59 @@
+@baseUrl=http://localhost:3000
+@token={{$dotenv JWT_TOKEN}}
+
+###
+GET {{baseUrl}} HTTP/1.1
+
+###
+GET {{baseUrl}}/books HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+GET {{baseUrl}}/books/66026f888f7e0865cd57ec1f HTTP/1.1
+
+###
+GET {{baseUrl}}/books/bad-id HTTP/1.1
+
+###
+POST {{baseUrl}}/books HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "Example book {{$randomInt 1 999}}",
+    "authors": "Author {{$randomInt 1 99}}",
+    "description": "Description {{$guid}}"
+}
+
+###
+PUT {{baseUrl}}/books/66026f888f7e0865cd57ec1f HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Example book {{$randomInt 1 999}}"
+}
+
+###
+DELETE {{baseUrl}}/books/66026f888f7e0865cd57ec1f HTTP/1.1
+
+###
+POST {{baseUrl}}/api/users/signup HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test{{$randomInt 0 10}}@example.com",
+    "password": "123456",
+    "firstName": "Aleksandr {{$randomInt 1 10}}"
+}
+
+###
+POST {{baseUrl}}/api/users/signin HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test{{$randomInt 0 10}}@example.com",
+    "password": "123456"
+}
+
+###
+GET {{baseUrl}}/api/users/yandex HTTP/1.1
